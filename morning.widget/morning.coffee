@@ -10,8 +10,8 @@ refreshFrequency: 30000
 #Body Style
 style: """
 
-  color: #fff
-  font-family: Helvetica Neue, Arial
+  color: rgba(#eee, .35)
+  font-family: Avenir Next Condensed Ultra Light
 
   .main
    position: relative
@@ -32,8 +32,7 @@ style: """
 
   .time
    font-size: 10em
-   color:#fff
-   font-weight:700
+   font-weight:300
    text-align:center
 
   .half
@@ -42,7 +41,6 @@ style: """
 
   .text
    font-size: 4em
-   color:#fff
    font-weight:700
    margin-top:-3%
 
@@ -81,8 +79,8 @@ update: (output, domEl) ->
   #Options: (true/false)
   showAmPm = true;
   showName = true;
-  fourTwenty = false; #Smoke Responsibly
-  militaryTime = false; #Military Time = 24 hour time
+  fourTwenty = true; #Smoke Responsibly
+  militaryTime = true; #Military Time = 24 hour time
 
   #Time Segmends for the day
   segments = ["morning", "afternoon", "evening", "night"]
@@ -126,10 +124,10 @@ update: (output, domEl) ->
 
   #DOM manipulation
   if fourTwenty && blazeIt 
-    $(domEl).find('.salutation').text("Blaze It")
+    #$(domEl).find('.salutation').text("Blaze It")
   else
-    $(domEl).find('.salutation').text("Good #{timeSegment}") 
-  $(domEl).find('.name').text(" , #{name[0]}.") if showName
+    #$(domEl).find('.salutation').text("Good #{timeSegment}") 
+  #$(domEl).find('.name').text(" , #{name[0]}.") if showName
   $(domEl).find('.hour').text("#{hour}")
   $(domEl).find('.min').text("#{minutes}")
   $(domEl).find('.half').text("#{half}") if showAmPm && !militaryTime
